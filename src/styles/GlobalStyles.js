@@ -28,8 +28,6 @@ export default createGlobalStyle`
   ul{
     list-style: none;
   }
-
-  
   `;
 
   export const Container = styled.div`
