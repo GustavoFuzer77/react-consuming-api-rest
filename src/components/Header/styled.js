@@ -7,6 +7,19 @@ export const HeaderDiv = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  .teste{
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    margin-right: 6px;
+
+    span img{
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+    }
+  }
 `;
 
 
@@ -20,4 +33,21 @@ export const H1 = styled.h1`
     margin-right: 18px;
 
   }
+
+  @media screen and (max-width: 320px){
+    font-size: 1.0rem
+  }
+
+`;
+
+export const MenuHamburguer = styled.div`
+
+  
+
+   @media screen and (max-width: 320px){
+    .menu-side{
+      background: red;
+    }
+  }
+
 `;

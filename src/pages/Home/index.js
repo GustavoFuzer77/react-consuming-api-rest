@@ -1,10 +1,25 @@
-import React from "react";
-import { InicioDiv, Title, SubTitle, SubTitle2 } from './styled';
+import React, { useEffect, useState } from "react";
+import { InicioDiv, Title, Card } from './styled';
 import { Container } from '../../styles/GlobalStyles';
 import './stylesCss.css';
 import Typist from 'react-typist';
+import api from '../../services/axios';
+import { get } from 'lodash/get'
 
 export default function Home() {
+
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+    async function getData() {
+      const { data } = await api.get('/users')
+      setUser(data)
+    }
+ 
+    getData()
+  }, [])
+
+  console.log(user)
 
   return (
     <>
@@ -13,26 +28,19 @@ export default function Home() {
           <Title className="title">Lorem ipsum dolor sit amet lorem</Title>
         </Typist>
       </InicioDiv>
+      <br />
       <Container>
-        <div>
-          <SubTitle>Just SubTitle</SubTitle>
-          <div className="div-subtitle">
-            <p>Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet loremLorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem</p>
-          </div>
-        </div>
-        <SubTitle2>Just SubTitle2</SubTitle2>
-        <div className="div-subtitle2">
-          <p>Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet loremLorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem</p>
-        </div>
-        <div>
-          <SubTitle>Just SubTitle</SubTitle>
-          <div className="div-subtitle">
-            <p>Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet loremLorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem</p>
-          </div>
-        </div>
-        <SubTitle2>Just SubTitle2</SubTitle2>
-        <div className="div-subtitle2">
-          <p>Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet loremLorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem Lorem ipsum dolor sit amet lorem</p>
+        <div className="div-card-container">
+          {user.map(usuario => (
+            <Card key={String(usuario.id)} >
+              <div className="text-into-card">
+                <p>{usuario.nome}</p>
+              </div>
+              <div className="image-into-card">
+               
+              </div>
+            </Card>
+          ))}
         </div>
       </Container>
     </>
