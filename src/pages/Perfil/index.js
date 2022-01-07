@@ -51,7 +51,7 @@ export default function Perfil() {
     if (idade < 18) {
       toast.error('Idade permitida acima de 18 anos.')
     }
-    
+
     if (error) return
 
 
@@ -76,14 +76,14 @@ export default function Perfil() {
             <input type='text' placeholder={nome} value={nome} onChange={(e) => setNome(e.target.value)}/>
             <label>idade</label>
             <input type='number' maxLength={2} placeholder={idade} value={idade} onChange={(e) => setIdade(e.target.value)}/>
-            <label>descricão</label> 
-            <input type='text' placeholder={descricao} value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
+            <label>descricão</label>
+            <textarea type='text' placeholder={descricao} value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
           </div>
           <div>
             <Button>Editar</Button>
           </div>
         </AboutSection>
-        
+
       </Form>
     </Container>
   )

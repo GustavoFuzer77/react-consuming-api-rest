@@ -7,7 +7,7 @@ flex-wrap: wrap;
 `;
 
 export const FotoSection = styled.div`
-  
+
 
   label{
     border-radius: 50%;
@@ -55,7 +55,7 @@ export const AboutSection = styled.div`
     font-size: 1.2rem;
     margin-bottom: 10px;
   }
-  
+
   .descricao{
   }
 
@@ -69,6 +69,15 @@ export const AboutSection = styled.div`
     max-width: 425px;
     width: 98%;
     padding: 5px;
+  }
+
+  textarea{
+    max-width: 425px;
+    width: 98%;
+    padding: 5px;
+    height: 60px;
+    font-family: sans-serif;
+    resize: none;
   }
 
   div + div {

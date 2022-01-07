@@ -24,6 +24,21 @@
 
 }
 
+.inputField-desc textarea{
+  width: 95%;
+  padding: 1.6px;
+  font-size: 14px;
+  font-family: sans-serif;
+  height: 50px;
+  resize: none;
+}
+
+
+.inputField-desc p{
+  color: aliceblue;
+  font-size: 1.2rem;
+}
+
 .inputField-age input{
   width: 60%;
   padding: 1.6px;

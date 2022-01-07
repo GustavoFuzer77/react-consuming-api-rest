@@ -6,6 +6,7 @@ import './style.css'
 import { isEmail } from 'validator';
 import { toast } from "react-toastify";
 import api from '../../services/axios';
+import history from "../../services/history";
 
 
 export default function Criar() {
@@ -14,6 +15,7 @@ export default function Criar() {
   const [password, setPassword] = useState('');
   const [nome, setNome] = useState('');
   const [idade, setIdade] = useState();
+  const [descricao, setDescricao] = useState('');
 
   const handleCreate = async (e) => {
     e.preventDefault()
@@ -34,29 +36,39 @@ export default function Criar() {
       error = true;
     }
 
-    if(nome === ''){
+    if (nome === '') {
       toast.error('O nome não pode estar em branco')
+      error = true;
     }
 
-    if(idade < 18 ){
+    if (idade < 18) {
       toast.error('Idade permitida acima de 18 anos.')
+      error = true;
     }
 
+
+    if (descricao <= 15) {
+      toast.error('minimo 10 caracteres')
+      error = true;
+    }
+
+    console.log('chegou')
     if (error) return
 
     const payload = {
       email: email,
       password: password,
       nome: nome,
-      idade: idade
+      idade: idade,
+      descricao: descricao
     }
 
     try {
-      const teste = await api.post('/user', payload)
-      console.log(teste)
+      await api.post('/user', payload)
     } catch (err) {
       console.log(err)
     }
+    history.push('/login')
   }
 
   return (
@@ -85,6 +97,10 @@ export default function Criar() {
                   <p>Idade:</p>
                   <input maxLength='2' placeholder="idade" value={idade} onChange={e => setIdade(e.target.value)} />
                 </div>
+              </div>
+              <div className="input inputField-desc">
+                <p>descricao:</p>
+                <textarea placeholder="Digite uma biografia" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
               </div>
 
               <div className="button container">

@@ -29,12 +29,13 @@ export default createGlobalStyle`
   ul{
     list-style: none;
   }
+
   `;
 
   export const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  
+
 
   @media(min-width: 768px) and (max-width:1023px){
     max-width: 90%;

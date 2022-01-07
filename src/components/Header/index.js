@@ -8,9 +8,9 @@ import { get } from "lodash/get";
 
 export default function Header() {
 
-  const getData = async () => {
+  async function getData()  {
     const { data } = await api.get('/user')
-    setFoto(data.FotoUsers[0].url)
+    setFoto(data.FotoUsers[0]?.url)
   }
 
   React.useEffect(() => {

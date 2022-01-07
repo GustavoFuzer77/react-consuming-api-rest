@@ -12,13 +12,17 @@ export const HeaderDiv = styled.nav`
     width: 31px;
     height: 31px;
     border-radius: 50%;
-    margin-right: 6px;
+    margin-right: 25px;
 
     span img{
       width: 31px;
       height: 31px;
       border-radius: 50%;
     }
+  }
+
+  .teste span{
+    outline: none;
   }
 `;
 
@@ -36,18 +40,6 @@ export const H1 = styled.h1`
 
   @media screen and (max-width: 320px){
     font-size: 1.0rem
-  }
-
-`;
-
-export const MenuHamburguer = styled.div`
-
-  
-
-   @media screen and (max-width: 320px){
-    .menu-side{
-      background: red;
-    }
   }
 
 `;
